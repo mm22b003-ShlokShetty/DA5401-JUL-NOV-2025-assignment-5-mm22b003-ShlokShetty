@@ -33,29 +33,6 @@ Each instance corresponds to a yeast gene, represented by a set of quantitative 
 
 ---
 
-## Methodology
-
-### **1. Data Preparation**
-- Loaded the dataset from ARFF format and converted byte strings to UTF-8.  
-- Removed the `id` column and separated data into:
-  - **Feature matrix (X):** 103 numeric features  
-  - **Label matrix (Y):** 14 binary indicators  
-- Verified dimensions and distribution of labels.
-
-### **2. Label Simplification**
-To reduce visual clutter from 14 overlapping labels, a new categorical variable was created:
-- **TopSingle_1:** Most frequent single-label class  
-- **TopSingle_2:** Second most frequent single-label class  
-- **MostFreqMulti:** Most common multi-label combination  
-- **Other:** All remaining combinations  
-
-Since the dataset is heavily multi-labeled, the “Other” and “MostFreqMulti” categories dominate.
-
-### **3. Feature Standardization**
-All features were standardized using **z-score normalization** to ensure equal contribution to distance-based methods.
-
----
-
 ## Manifold Learning Techniques
 
 ### **A. t-SNE (t-Distributed Stochastic Neighbor Embedding)**
@@ -123,18 +100,4 @@ Instead, the curvature and bending suggest complex, interdependent gene relation
 3. The presence of ambiguous and overlapping regions confirms high **data complexity** and **veracity challenges**.  
 4. The manifold’s curvature implies that **linear decision boundaries** are inadequate, necessitating **non-linear learning approaches**.  
 5. Manifold visualization thus serves as both an exploratory and diagnostic tool for understanding the data’s intrinsic geometry.
-
----
-
-## References
-- van der Maaten, L., & Hinton, G. (2008). *Visualizing Data using t-SNE.* Journal of Machine Learning Research.  
-- Tenenbaum, J. B., de Silva, V., & Langford, J. C. (2000). *A Global Geometric Framework for Nonlinear Dimensionality Reduction.* Science.  
-- MULAN Repository: Yeast Dataset Documentation.
-
----
-
-## Acknowledgment
-
-This report and visual analysis were completed as part of **DA5401 – Data Analytics Laboratory** coursework.  
-All code, figures, and interpretations were developed by **Shlok Shetty** under the guidance of the course instructors.
 
